@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7FE36B5624BE0F700050082F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE36B5524BE0F700050082F /* AppDelegate.swift */; };
-		7FE36B5824BE0F700050082F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE36B5724BE0F700050082F /* SceneDelegate.swift */; };
 		7FE36B5A24BE0F700050082F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE36B5924BE0F700050082F /* ViewController.swift */; };
 		7FE36B5D24BE0F700050082F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE36B5B24BE0F700050082F /* Main.storyboard */; };
 		7FE36B6024BE0F700050082F /* HeadyE_commerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FE36B5E24BE0F700050082F /* HeadyE_commerce.xcdatamodeld */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		7FE36B5224BE0F700050082F /* HeadyE-commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HeadyE-commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE36B5524BE0F700050082F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7FE36B5724BE0F700050082F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7FE36B5924BE0F700050082F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7FE36B5C24BE0F700050082F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FE36B5F24BE0F700050082F /* HeadyE_commerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeadyE_commerce.xcdatamodel; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				7FE36B5524BE0F700050082F /* AppDelegate.swift */,
-				7FE36B5724BE0F700050082F /* SceneDelegate.swift */,
 				7FE36B5924BE0F700050082F /* ViewController.swift */,
 				7FE36B5B24BE0F700050082F /* Main.storyboard */,
 				7FE36B6124BE0F710050082F /* Assets.xcassets */,
@@ -206,7 +203,6 @@
 				7FE36B5A24BE0F700050082F /* ViewController.swift in Sources */,
 				7FE36B5624BE0F700050082F /* AppDelegate.swift in Sources */,
 				7FE36B6024BE0F700050082F /* HeadyE_commerce.xcdatamodeld in Sources */,
-				7FE36B5824BE0F700050082F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HeadyE-commerce";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HeadyE-commerce";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
