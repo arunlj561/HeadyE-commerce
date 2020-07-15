@@ -58,4 +58,8 @@ class Categories: NSManagedObject, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(products, forKey: .products)
     }
+    
+    class func fetchRequest() -> NSFetchRequest<Categories> {
+        return NSFetchRequest<Categories>(entityName: "Categories")
+    }
 }
