@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -91,19 +91,19 @@
 				2014D6D240FAFDD217BF962C /* Pods-HeadyE-commerce.debug.xcconfig */,
 				DA9EBA464826A070622440C9 /* Pods-HeadyE-commerce.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7FAB2C5E24BF2A3B0020A1E5 /* CategoryModels */ = {
+		7FAB2C5E24BF2A3B0020A1E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7FAB2C5F24BF2A4C0020A1E5 /* Root.swift */,
 				7FE36B7F24BE144B0050082F /* Categories.swift */,
 				7FE36B8124BE155B0050082F /* Products.swift */,
 				7FAB2C5A24BF24800020A1E5 /* Tax.swift */,
 				7FAB2C5C24BF24B00020A1E5 /* Variants.swift */,
 			);
-			path = CategoryModels;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7FE36B4924BE0F700050082F = {
@@ -131,8 +131,7 @@
 			children = (
 				7FE36B5524BE0F700050082F /* AppDelegate.swift */,
 				7FE36B5924BE0F700050082F /* ViewController.swift */,
-				7FAB2C5F24BF2A4C0020A1E5 /* Root.swift */,
-				7FAB2C5E24BF2A3B0020A1E5 /* CategoryModels */,
+				7FAB2C5E24BF2A3B0020A1E5 /* Models */,
 				7FE36B5B24BE0F700050082F /* Main.storyboard */,
 				7FE36B7E24BE11A10050082F /* Managers */,
 				7FE36B6124BE0F710050082F /* Assets.xcassets */,
