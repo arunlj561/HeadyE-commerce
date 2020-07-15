@@ -67,8 +67,19 @@ class ServiceManager {
                 let decoder = JSONDecoder()
                 decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
                 let root = try decoder.decode(Root.self, from: modifiedDataInUTF8Format)
-                
                 try managedObjectContext.save()
+                
+                if let rankings = root.rankings{
+                    for i in rankings{
+                        if i.ranking.contains("Viewed"){
+                            Products.updateViewCount(i)
+                        }else if i.ranking.contains("OrdeRed"){
+                            Products.updateOrderCount(i)
+                        }else if i.ranking.contains("ShaRed"){
+                            Products.updateShareCount(i)
+                        }
+                    }
+                }
                 completion(.success(true))
             } catch (let exception){
                 print(exception.localizedDescription)

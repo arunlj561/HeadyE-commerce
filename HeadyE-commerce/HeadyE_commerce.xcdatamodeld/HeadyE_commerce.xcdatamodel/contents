@@ -10,6 +10,9 @@
         <attribute name="date_added" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="orderCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="shareCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="viewCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="tax" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tax" inverseName="relationship" inverseEntity="Tax"/>
         <relationship name="variants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Variants"/>
     </entity>
@@ -27,7 +30,7 @@
     </entity>
     <elements>
         <element name="Categories" positionX="-446.04296875" positionY="-338.62890625" width="128" height="103"/>
-        <element name="Products" positionX="-382.234375" positionY="-45.203125" width="128" height="118"/>
+        <element name="Products" positionX="-382.234375" positionY="-45.203125" width="128" height="163"/>
         <element name="Tax" positionX="-98.0703125" positionY="21.8671875" width="128" height="88"/>
         <element name="Variants" positionX="-60.6953125" positionY="-235.00390625" width="128" height="118"/>
     </elements>

@@ -25,3 +25,4 @@ struct ProductType:Codable {
     var order_count:Int?
     var shares:Int?
 }
+

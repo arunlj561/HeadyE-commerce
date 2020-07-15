@@ -21,6 +21,9 @@ class Products:NSManagedObject,Codable{
     @NSManaged var name:String?
     @NSManaged var date_added:Date?
     var id:Int64?
+    var shareCount:Int64?
+    var viewCount:Int64?
+    var orderCount:Int64?
     @NSManaged var variants:Set<Variants>?
     @NSManaged var tax:Tax?
     
@@ -48,7 +51,9 @@ class Products:NSManagedObject,Codable{
             }
             self.variants = tempSet
         }
-        
+        self.shareCount = 0
+        self.orderCount = 0
+        self.viewCount = 0
         self.tax = try container.decodeIfPresent(Tax.self, forKey: .tax)
         
     }
@@ -61,6 +66,74 @@ class Products:NSManagedObject,Codable{
         try container.encode(date_added, forKey: .date_added)
         try container.encode(variants, forKey: .variants)
         try container.encode(tax, forKey: .tax)
+    }
+    
+    class func fetchRequest() -> NSFetchRequest<Products> {
+        return NSFetchRequest<Products>(entityName: "Products")
+    }
+
+    
+    class func updateViewCount(_ ranking:Rankings){
+        if let product = ranking.products{
+            for i in product{
+                if let id = i.id{
+                    let context = CoreDataManager.persistentContainer.viewContext
+                    let fetchRequest: NSFetchRequest<Products> = Products.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+                    do {
+                        let result = try context.fetch(fetchRequest)
+                        if let product = result.first{
+                            product.viewCount = Int64(i.view_count ?? 0)
+                        }
+                        CoreDataManager.saveContext()
+                    } catch {
+                        print("Could not fetch product")
+                    }
+                }
+            }
+        }
+    }
+    
+    class func updateOrderCount(_ ranking:Rankings){
+        if let product = ranking.products{
+            for i in product{
+                if let id = i.id{
+                    let context = CoreDataManager.persistentContainer.viewContext
+                    let fetchRequest: NSFetchRequest<Products> = Products.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+                    do {
+                        let result = try context.fetch(fetchRequest)
+                        if let product = result.first{
+                            product.orderCount = Int64(i.order_count ?? 0)
+                        }
+                        CoreDataManager.saveContext()
+                    } catch {
+                        print("Could not fetch product")
+                    }
+                }
+            }
+        }
+    }
+    
+    class func updateShareCount(_ ranking:Rankings){
+        if let product = ranking.products{
+            for i in product{
+                if let id = i.id{
+                    let context = CoreDataManager.persistentContainer.viewContext
+                    let fetchRequest: NSFetchRequest<Products> = Products.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+                    do {
+                        let result = try context.fetch(fetchRequest)
+                        if let product = result.first{
+                            product.shareCount = Int64(i.shares ?? 0)
+                        }
+                        CoreDataManager.saveContext()
+                    } catch {
+                        print("Could not fetch product")
+                    }
+                }
+            }
+        }
     }
 
 }
