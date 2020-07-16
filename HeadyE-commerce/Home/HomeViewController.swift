@@ -49,7 +49,39 @@ class HomeViewController: UIViewController, RefreshViews {
         }
         
     }
-
+    @IBAction func filterOption(_ sender: Any) {
+        showOptions()
+    }
+    
+    func showOptions(){
+        let actionSheet = UIAlertController(title: "Ranking", message: "Filter by rankinng", preferredStyle: .actionSheet)
+        let mostViewed = UIAlertAction(title: "Most Viewed Products", style: .default) { (action) in
+            if let productsListViewController = ProductListViewController.productsListViewController(forCategory: nil, listType: .viewed){
+                self.navigationController?.pushViewController(productsListViewController, animated: true)
+            }
+        }
+        let mostOrdered = UIAlertAction(title: "Most Ordered Products", style: .default) { (action) in
+            if let productsListViewController = ProductListViewController.productsListViewController(forCategory: nil, listType: .order){
+                self.navigationController?.pushViewController(productsListViewController, animated: true)
+            }
+        }
+        let mostShared = UIAlertAction(title: "Most Shared Products", style: .default) { (action) in
+            if let productsListViewController = ProductListViewController.productsListViewController(forCategory: nil, listType: .shared){
+                self.navigationController?.pushViewController(productsListViewController, animated: true)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                   
+        }
+        actionSheet.addAction(mostViewed)
+        actionSheet.addAction(mostOrdered)
+        actionSheet.addAction(mostShared)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    
 }
 extension HomeViewController:UICollectionViewDelegateFlowLayout{
     
@@ -60,7 +92,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let category = datasource.fetchedResultsController.object(at: indexPath)
         
-        if let productsListViewController = ProductListViewController.productsListViewController(forCategory: category){
+        if let productsListViewController = ProductListViewController.productsListViewController(forCategory: category, listType: .normal){
             self.navigationController?.pushViewController(productsListViewController, animated: true)
         }
     }
