@@ -40,12 +40,9 @@ class DetailTableViewCell: UITableViewCell {
     
     @IBOutlet var colorVariantCollection: [UIButton]!
     
-    var selectedVariant:Variants?{
-        didSet{
-            price.text = "₹ \(selectedVariant?.price ?? 0)"
-            rating.text = "\(selectedVariant?.size ?? 0)"
-        }
-    }
+    var selectedVariant:Variants?
+        
+    
         
     
     
@@ -53,7 +50,13 @@ class DetailTableViewCell: UITableViewCell {
     
     func updateName(){
         self.name.text = product.name
-        self.selectedVariant = product.variants?.first
+        if let variant = self.selectedVariant{
+            price.text = "₹ \(variant.price ?? 0)"
+            rating.text = "\(variant.size ?? 0)"
+        }else{
+            self.selectedVariant = product.variants?.first
+        }
+        
         
     }
     
