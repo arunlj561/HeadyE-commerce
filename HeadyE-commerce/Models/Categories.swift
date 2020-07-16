@@ -71,4 +71,9 @@ class Categories: NSManagedObject, Codable {
     class func fetchRequest() -> NSFetchRequest<Categories> {
         return NSFetchRequest<Categories>(entityName: "Categories")
     }
+    
+    class func getCount(){
+        let fetchRequest: NSFetchRequest<Categories> = Categories.fetchRequest()
+        
+    }
 }

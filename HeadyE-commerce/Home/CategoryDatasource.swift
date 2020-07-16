@@ -8,10 +8,20 @@
 
 import UIKit
 import CoreData
+
+protocol RefreshViews:class {
+    func deleteRows(forindexPath indexPath:IndexPath)
+    func updateRows(forindexPath indexPath:IndexPath)
+    func insertRows(forindexPath indexPath:IndexPath)
+}
+
+
 class CategoryDatasource: NSObject, UICollectionViewDataSource {
     
     var _fetchedResultsController: NSFetchedResultsController<Categories>? = nil
     var managedObjectContext :NSManagedObjectContext = CoreDataManager.persistentContainer.viewContext
+    
+    weak var delegate:RefreshViews?
     
     var fetchedResultsController: NSFetchedResultsController<Categories>
     {
@@ -60,6 +70,23 @@ class CategoryDatasource: NSObject, UICollectionViewDataSource {
 }
 
 extension CategoryDatasource:NSFetchedResultsControllerDelegate{
-    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+            case .delete:
+                if let deleteIndex = indexPath{
+                    delegate?.deleteRows(forindexPath: deleteIndex)
+                }
+            case .update:
+                if let updateIndex = indexPath{
+                    delegate?.updateRows(forindexPath: updateIndex)
+                }
+            case .insert:
+                if let insertIndex = newIndexPath{
+                    delegate?.insertRows(forindexPath: insertIndex)
+                }
+            default:
+                break
+        }
+    }
     
 }

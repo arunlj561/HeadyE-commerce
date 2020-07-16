@@ -32,3 +32,14 @@ extension UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+extension UserDefaults{
+    static let firstLoad = "firstLoad"
+    
+    func getFirstLoad() -> Bool{
+        return UserDefaults.standard.bool(forKey: UserDefaults.firstLoad)
+    }
+    func setFirsLoad(){
+        UserDefaults.standard.set(true, forKey: UserDefaults.firstLoad)
+    }
+}

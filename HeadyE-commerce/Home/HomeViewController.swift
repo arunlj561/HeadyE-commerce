@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, RefreshViews {
+    
+    
 
     @IBOutlet weak var navTitle: UILabel!
     @IBOutlet weak var collectionView:UICollectionView!
@@ -16,9 +19,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ServiceManager.sharedInstance.getUserData { (result) in
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                        
+        if UserDefaults.standard.getFirstLoad() == false{
+            ServiceManager.sharedInstance.getUserData { (result) in
+                UserDefaults.standard.setFirsLoad()
             }
         }
         self.setupCollectionView()
@@ -26,11 +30,25 @@ class HomeViewController: UIViewController {
     
     func setupCollectionView(){
         self.navTitle.text = "Home"
+        datasource.delegate = self
         collectionView.dataSource = datasource
         collectionView.delegate = self
     }
     
-
+    func deleteRows(forindexPath indexPath: IndexPath) {
+        
+    }
+    
+    func updateRows(forindexPath indexPath: IndexPath) {
+        
+    }
+    
+    func insertRows(forindexPath indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        
+    }
 
 }
 extension HomeViewController:UICollectionViewDelegateFlowLayout{
@@ -41,7 +59,7 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let category = datasource.fetchedResultsController.object(at: indexPath)
-        print(category)
+        
         if let productsListViewController = ProductListViewController.productsListViewController(forCategory: category){
             self.navigationController?.pushViewController(productsListViewController, animated: true)
         }

@@ -48,12 +48,17 @@ class ProductListViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.datasource.categoryId =
-//        self.datasource.products = categories.products
+
         self.categoryTitle.text = self.title
         self.datasource.categoryId = categoryId
         self.collectionView.delegate = self
         self.collectionView.dataSource = datasource
+        
+        if categories.products.count > 0 {
+            self.collectionView.isHidden = false
+        }else{
+            self.collectionView.isHidden = true
+        }
         
     }
     
@@ -73,7 +78,7 @@ class ProductListViewController: UIViewController{
 extension ProductListViewController:UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: deviceWidth - 40, height: 44)
+        return CGSize(width: deviceWidth - 40, height: 70)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
