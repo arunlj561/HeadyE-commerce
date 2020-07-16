@@ -69,6 +69,7 @@ class ServiceManager {
                 let root = try decoder.decode(Root.self, from: modifiedDataInUTF8Format)
                 try managedObjectContext.save()
                 
+                
                 if let rankings = root.rankings{
                     for i in rankings{
                         if i.ranking.contains("Viewed"){

@@ -20,10 +20,27 @@ class Products:NSManagedObject,Codable{
     
     @NSManaged var name:String?
     @NSManaged var date_added:Date?
-    var id:Int64?
-    var shareCount:Int64?
-    var viewCount:Int64?
-    var orderCount:Int64?
+    var id:Int64?{
+        get {
+            willAccessValue(forKey: "id")
+            defer { didAccessValue(forKey: "id") }
+
+            return primitiveValue(forKey: "id") as? Int64
+        }
+        set {
+            willChangeValue(forKey: "id")
+            defer { didChangeValue(forKey: "id") }
+
+            guard let value = newValue else {
+                setPrimitiveValue(nil, forKey: "id")
+                return
+            }
+            setPrimitiveValue(value, forKey: "id")
+        }
+    }
+    @NSManaged var shareCount:NSNumber?
+    @NSManaged var viewCount:NSNumber?
+    @NSManaged var orderCount:NSNumber?
     @NSManaged var variants:Set<Variants>?
     @NSManaged var tax:Tax?
     
@@ -61,7 +78,7 @@ class Products:NSManagedObject,Codable{
     // MARK: - Encodable
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
+        try container.encode(name, forKey: .name)        
         try container.encode(id, forKey: .id)
         try container.encode(date_added, forKey: .date_added)
         try container.encode(variants, forKey: .variants)
@@ -83,7 +100,7 @@ class Products:NSManagedObject,Codable{
                     do {
                         let result = try context.fetch(fetchRequest)
                         if let product = result.first{
-                            product.viewCount = Int64(i.view_count ?? 0)
+                            product.viewCount = NSNumber(value: i.view_count ?? 0)
                         }
                         CoreDataManager.saveContext()
                     } catch {
@@ -104,7 +121,7 @@ class Products:NSManagedObject,Codable{
                     do {
                         let result = try context.fetch(fetchRequest)
                         if let product = result.first{
-                            product.orderCount = Int64(i.order_count ?? 0)
+                            product.orderCount = NSNumber(value: i.order_count ?? 0)
                         }
                         CoreDataManager.saveContext()
                     } catch {
@@ -125,7 +142,7 @@ class Products:NSManagedObject,Codable{
                     do {
                         let result = try context.fetch(fetchRequest)
                         if let product = result.first{
-                            product.shareCount = Int64(i.shares ?? 0)
+                            product.shareCount = NSNumber(value: i.shares ?? 0)
                         }
                         CoreDataManager.saveContext()
                     } catch {

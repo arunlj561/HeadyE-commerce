@@ -18,9 +18,28 @@ class Variants: NSManagedObject, Codable {
     }
     
     @NSManaged var color:String?
-    var id:Int64?
-    var size:Int64?
-    var price:Int64?
+    var id:Int64?{
+        get {
+            willAccessValue(forKey: "id")
+            defer { didAccessValue(forKey: "id") }
+
+            return primitiveValue(forKey: "id") as? Int64
+        }
+        set {
+            willChangeValue(forKey: "id")
+            defer { didChangeValue(forKey: "id") }
+
+            guard let value = newValue else {
+                setPrimitiveValue(nil, forKey: "id")
+                return
+            }
+            setPrimitiveValue(value, forKey: "id")
+        }
+
+    }
+    
+    @NSManaged var size:NSNumber?
+    @NSManaged var price:NSNumber?
     
     
     // MARK: - Decodable
@@ -36,9 +55,17 @@ class Variants: NSManagedObject, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try container.decodeIfPresent(Int64.self, forKey: .id)
-        self.price = try container.decodeIfPresent(Int64.self, forKey: .price)
+        
         self.color = try container.decodeIfPresent(String.self, forKey: .color)
-        self.size = try container.decodeIfPresent(Int64.self, forKey: .size)
+        
+        if let _price = try container.decodeIfPresent(Int64.self, forKey: .price){
+            self.price = NSNumber(value: _price)
+        }
+        
+        
+        if let _size = try container.decodeIfPresent(Int64.self, forKey: .size){
+            self.size =  NSNumber(value: _size)
+        }
         
     }
 
@@ -47,7 +74,9 @@ class Variants: NSManagedObject, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(color, forKey: .color)
-        try container.encode(price, forKey: .price)
-        try container.encode(size, forKey: .size)
+        let _price = price?.int64Value
+        try container.encode(_price, forKey: .price)
+        let _size = size?.int64Value
+        try container.encode(_size, forKey: .size)
     }
 }

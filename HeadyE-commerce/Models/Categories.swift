@@ -17,7 +17,24 @@ class Categories: NSManagedObject, Codable {
         case child_categories
     }
     
-    var id :Int64?
+    public var id: Int64? {
+        get {
+            willAccessValue(forKey: "id")
+            defer { didAccessValue(forKey: "id") }
+
+            return primitiveValue(forKey: "id") as? Int64
+        }
+        set {
+            willChangeValue(forKey: "id")
+            defer { didChangeValue(forKey: "id") }
+
+            guard let value = newValue else {
+                setPrimitiveValue(nil, forKey: "id")
+                return
+            }
+            setPrimitiveValue(value, forKey: "id")
+        }
+    }
     @NSManaged var name:String?
     @NSManaged var products:Set<Products>
     @NSManaged var child_categories:[Int64]?
@@ -34,25 +51,17 @@ class Categories: NSManagedObject, Codable {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int64.self, forKey: .id)
+        self.id = try container.decode(Int64.self, forKey: .id)
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
-        
-        if let products = try container.decodeIfPresent([Products].self, forKey: .products){
-            var tempSet = Set<Products>()
-            for p in products{
-                tempSet.insert(p)
-            }
-            self.products = tempSet
-        }
+        self.products =  try container.decodeIfPresent(Set<Products>.self, forKey: .products) ?? Set<Products>()
         self.child_categories = try container.decodeIfPresent([Int64].self, forKey: .child_categories)
-        
     }
     
     
 
     // MARK: - Encodable
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: CodingKeys.self)                
         try container.encode(id, forKey: .id)
         try container.encode(child_categories, forKey: .child_categories)
         try container.encode(name, forKey: .name)
