@@ -37,7 +37,13 @@ class DetailTableViewCell: UITableViewCell {
         didSet{
             if let variant = self.selectedVariant{
                 price.text = "₹ \(variant.price ?? 0)"
-                size.text = "Size - \(variant.size ?? 0)"
+                if let s = variant.size, s.intValue > 0{
+                    size.isHidden = false
+                    size.text = "Size - \(s)"
+                }else{
+                    size.isHidden = true
+                }
+                
             }
         }
     }
