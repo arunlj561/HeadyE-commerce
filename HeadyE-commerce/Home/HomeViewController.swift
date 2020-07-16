@@ -17,7 +17,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ServiceManager.sharedInstance.getUserData { (result) in
-         
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
         self.setupCollectionView()
     }
@@ -39,8 +41,9 @@ extension HomeViewController:UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let category = datasource.fetchedResultsController.object(at: indexPath)
-//        if let productsListViewController = ProductListViewController.productsListViewController(forCategory: category, loadList: .normal){
-//            self.navigationController?.pushViewController(productsListViewController, animated: true)
-//        }
+        print(category)
+        if let productsListViewController = ProductListViewController.productsListViewController(forCategory: category){
+            self.navigationController?.pushViewController(productsListViewController, animated: true)
+        }
     }
 }

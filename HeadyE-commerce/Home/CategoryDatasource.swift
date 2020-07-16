@@ -25,10 +25,10 @@ class CategoryDatasource: NSObject, UICollectionViewDataSource {
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
                 
-        let predicate = NSPredicate(format: "id != nil")
+        let predicate = NSPredicate(format: "id != 0")
         
         
-        fetchRequest.predicate = predicate
+//        fetchRequest.predicate = predicate
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
                 
         aFetchedResultsController.delegate = self
