@@ -8,6 +8,7 @@
 
 
 import CoreData
+import  UIKit
 class Variants: NSManagedObject, Codable {
  
     enum CodingKeys: String, CodingKey {
@@ -41,7 +42,26 @@ class Variants: NSManagedObject, Codable {
     @NSManaged var size:NSNumber?
     @NSManaged var price:NSNumber?
     
-    
+    func getColor() -> UIColor{
+        if let color = color{
+            switch color {
+            case "Red": return .red
+            case "Blue" : return .blue
+            case "Black" : return .black
+            case "White": return .white
+            case "Yellow" : return .yellow
+            case "Grey" : return .gray
+            case "Green" : return .green
+            case "Brown" : return .brown
+            case "Silver" : return .lightText
+            case "Golden" : return UIColor(red: 252.0/255.0, green: 194.0/255.0, blue: 0, alpha: 1.0)
+            case "Light Blue" : return UIColor.blue.withAlphaComponent(0.5)
+            default:
+                return .brown
+            }
+        }
+        return .brown
+    }
     // MARK: - Decodable
     required convenience init(from decoder: Decoder) throws {
         guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,

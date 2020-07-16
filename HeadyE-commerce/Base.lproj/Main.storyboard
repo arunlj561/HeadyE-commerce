@@ -392,75 +392,12 @@
                                         <constraint firstAttribute="height" constant="44" id="vBH-Uz-GmY"/>
                                     </constraints>
                                 </view>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="cbj-e4-ncm">
-                                    <rect key="frame" x="0.0" y="553" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="if3-kH-YJC">
-                                            <rect key="frame" x="16" y="0.0" width="382" height="44"/>
-                                            <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lk1-cY-Rwg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="44"/>
-                                                    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Add to Cart">
-                                                        <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="22"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="addToCart:" destination="I6i-3g-6yU" eventType="touchUpInside" id="X7C-nc-FNb"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMb-Tx-98M">
-                                                    <rect key="frame" x="199" y="0.0" width="183" height="44"/>
-                                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Gift Register">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="22"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="addToGift:" destination="I6i-3g-6yU" eventType="touchUpInside" id="gum-F2-t52"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="fMb-Tx-98M" firstAttribute="width" secondItem="lk1-cY-Rwg" secondAttribute="width" id="AZr-DJ-NWX"/>
-                                            </constraints>
-                                        </stackView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstItem="if3-kH-YJC" firstAttribute="leading" secondItem="cbj-e4-ncm" secondAttribute="leading" constant="16" id="5U4-Fb-Xa9"/>
-                                        <constraint firstItem="if3-kH-YJC" firstAttribute="top" secondItem="cbj-e4-ncm" secondAttribute="top" id="CFp-kk-gXo"/>
-                                        <constraint firstAttribute="trailing" secondItem="if3-kH-YJC" secondAttribute="trailing" constant="16" id="Dbn-ng-oRJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="if3-kH-YJC" secondAttribute="bottom" id="d6S-h8-Mae"/>
-                                    </constraints>
-                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="name" rowHeight="128" id="LvV-ry-wte" customClass="DetailTableViewCell" customModule="HeadyE_commerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="128"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="name" rowHeight="257" id="LvV-ry-wte" customClass="DetailTableViewCell" customModule="HeadyE_commerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="257"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LvV-ry-wte" id="I7y-Wb-jhL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="257"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile, Laptops" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uou-Ra-zmy">
@@ -484,33 +421,8 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="svX-ga-IWo" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="7Kw-CZ-fzU"/>
-                                                <constraint firstItem="svX-ga-IWo" firstAttribute="top" secondItem="uou-Ra-zmy" secondAttribute="bottom" constant="8" id="8Wm-v1-qwh"/>
-                                                <constraint firstAttribute="trailing" secondItem="uou-Ra-zmy" secondAttribute="trailing" constant="20" id="Dp9-Cg-YUC"/>
-                                                <constraint firstItem="uou-Ra-zmy" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="ETk-r4-Bvb"/>
-                                                <constraint firstItem="bpL-J6-TcA" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="F8q-Wc-arM"/>
-                                                <constraint firstItem="bpL-J6-TcA" firstAttribute="top" secondItem="svX-ga-IWo" secondAttribute="bottom" constant="14" id="VbZ-SJ-9QX"/>
-                                                <constraint firstItem="svX-ga-IWo" firstAttribute="top" secondItem="uou-Ra-zmy" secondAttribute="bottom" constant="8" id="XuW-wB-sjX"/>
-                                                <constraint firstItem="uou-Ra-zmy" firstAttribute="top" secondItem="I7y-Wb-jhL" secondAttribute="top" constant="20" id="syk-D8-2PZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="name" destination="uou-Ra-zmy" id="qUz-1V-Are"/>
-                                            <outlet property="price" destination="svX-ga-IWo" id="B11-fz-J6O"/>
-                                            <outlet property="reviews" destination="bpL-J6-TcA" id="y76-te-nZp"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="color" rowHeight="106" id="Nez-qJ-2QS" customClass="DetailTableViewCell" customModule="HeadyE_commerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="106"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nez-qJ-2QS" id="Gp0-gR-yBR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-N8-178">
-                                                    <rect key="frame" x="207" y="53" width="0.0" height="0.0"/>
+                                                    <rect key="frame" x="207" y="134" width="0.0" height="107"/>
                                                     <subviews>
                                                         <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owk-jF-hgn">
                                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
@@ -521,7 +433,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="actionChangeVariant:" destination="Nez-qJ-2QS" eventType="touchUpInside" id="NvV-fI-cfG"/>
+                                                                <action selector="actionChangeVariant:" destination="LvV-ry-wte" eventType="touchUpInside" id="mdD-hN-Dhd"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-cH-huM">
@@ -533,7 +445,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="actionChangeVariant:" destination="Nez-qJ-2QS" eventType="touchUpInside" id="NOP-e9-DwD"/>
+                                                                <action selector="actionChangeVariant:" destination="LvV-ry-wte" eventType="touchUpInside" id="Ct9-53-glp"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPL-zk-HvN">
@@ -545,7 +457,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="actionChangeVariant:" destination="Nez-qJ-2QS" eventType="touchUpInside" id="N3n-CK-0rh"/>
+                                                                <action selector="actionChangeVariant:" destination="LvV-ry-wte" eventType="touchUpInside" id="TsG-OQ-TlZ"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f10-WL-ecM">
@@ -557,7 +469,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="actionChangeVariant:" destination="Nez-qJ-2QS" eventType="touchUpInside" id="4k4-TQ-1QG"/>
+                                                                <action selector="actionChangeVariant:" destination="LvV-ry-wte" eventType="touchUpInside" id="3TE-Xl-3Zl"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-nI-syK">
@@ -569,60 +481,38 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="actionChangeVariant:" destination="Nez-qJ-2QS" eventType="touchUpInside" id="Fq3-za-Scg"/>
+                                                                <action selector="actionChangeVariant:" destination="LvV-ry-wte" eventType="touchUpInside" id="2Jo-Zw-WoJ"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Kmh-nj-mq6"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lYQ-N8-178" firstAttribute="centerY" secondItem="Gp0-gR-yBR" secondAttribute="centerY" id="EgK-s2-Oju"/>
-                                                <constraint firstItem="lYQ-N8-178" firstAttribute="centerX" secondItem="Gp0-gR-yBR" secondAttribute="centerX" id="KrT-d3-2FC"/>
+                                                <constraint firstItem="svX-ga-IWo" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="7Kw-CZ-fzU"/>
+                                                <constraint firstItem="svX-ga-IWo" firstAttribute="top" secondItem="uou-Ra-zmy" secondAttribute="bottom" constant="8" id="8Wm-v1-qwh"/>
+                                                <constraint firstAttribute="bottom" secondItem="lYQ-N8-178" secondAttribute="bottom" constant="16" id="AGx-al-9sD"/>
+                                                <constraint firstItem="lYQ-N8-178" firstAttribute="top" secondItem="I7y-Wb-jhL" secondAttribute="top" constant="134" id="Bkq-O8-avk"/>
+                                                <constraint firstAttribute="trailing" secondItem="uou-Ra-zmy" secondAttribute="trailing" constant="20" id="Dp9-Cg-YUC"/>
+                                                <constraint firstItem="uou-Ra-zmy" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="ETk-r4-Bvb"/>
+                                                <constraint firstItem="bpL-J6-TcA" firstAttribute="leading" secondItem="I7y-Wb-jhL" secondAttribute="leading" constant="20" id="F8q-Wc-arM"/>
+                                                <constraint firstItem="bpL-J6-TcA" firstAttribute="top" secondItem="svX-ga-IWo" secondAttribute="bottom" constant="14" id="VbZ-SJ-9QX"/>
+                                                <constraint firstItem="svX-ga-IWo" firstAttribute="top" secondItem="uou-Ra-zmy" secondAttribute="bottom" constant="8" id="XuW-wB-sjX"/>
+                                                <constraint firstItem="lYQ-N8-178" firstAttribute="centerX" secondItem="I7y-Wb-jhL" secondAttribute="centerX" id="c0E-e9-wqf"/>
+                                                <constraint firstItem="uou-Ra-zmy" firstAttribute="top" secondItem="I7y-Wb-jhL" secondAttribute="top" constant="20" id="syk-D8-2PZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outletCollection property="colorVariantCollection" destination="owk-jF-hgn" collectionClass="NSMutableArray" id="1Fi-Wo-eaE"/>
-                                            <outletCollection property="colorVariantCollection" destination="tkK-cH-huM" collectionClass="NSMutableArray" id="hlf-AS-mLx"/>
-                                            <outletCollection property="colorVariantCollection" destination="cPL-zk-HvN" collectionClass="NSMutableArray" id="uIE-w4-nuK"/>
-                                            <outletCollection property="colorVariantCollection" destination="f10-WL-ecM" collectionClass="NSMutableArray" id="kxY-XK-hte"/>
-                                            <outletCollection property="colorVariantCollection" destination="9F1-nI-syK" collectionClass="NSMutableArray" id="GDN-M1-YSk"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="detail" rowHeight="219" id="Z2X-k5-WOw" customClass="DetailTableViewCell" customModule="HeadyE_commerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="306" width="414" height="219"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2X-k5-WOw" id="ZqD-qd-zOQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="219"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE1-cb-VXm">
-                                                    <rect key="frame" x="20" y="20" width="46" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="GbO-4s-w2G"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJp-Kq-oRt">
-                                                    <rect key="frame" x="20" y="45" width="374" height="154"/>
-                                                    <string key="text">Core Data is a framework, provided by Apple, to be used on Applications for iOS and macOS. As Apple states, it is not a database, but instead a persistence framework that commonly uses SQLite to store and retrieve structured data. For programmers, it operates purely on the object level without having to worry about the details of storage and retrieval.</string>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="sJp-Kq-oRt" firstAttribute="top" secondItem="rE1-cb-VXm" secondAttribute="bottom" constant="8" id="4kE-Rw-BKM"/>
-                                                <constraint firstItem="rE1-cb-VXm" firstAttribute="top" secondItem="ZqD-qd-zOQ" secondAttribute="top" constant="20" id="L0v-5W-YFf"/>
-                                                <constraint firstAttribute="trailing" secondItem="sJp-Kq-oRt" secondAttribute="trailing" constant="20" id="UCd-Cd-uIm"/>
-                                                <constraint firstAttribute="bottom" secondItem="sJp-Kq-oRt" secondAttribute="bottom" constant="20" id="XSh-2I-5vh"/>
-                                                <constraint firstItem="rE1-cb-VXm" firstAttribute="leading" secondItem="ZqD-qd-zOQ" secondAttribute="leading" constant="20" id="XpT-Dc-o36"/>
-                                                <constraint firstItem="sJp-Kq-oRt" firstAttribute="leading" secondItem="ZqD-qd-zOQ" secondAttribute="leading" constant="20" id="nPY-hi-tT7"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="content" destination="sJp-Kq-oRt" id="zRH-iH-bCc"/>
+                                            <outlet property="name" destination="uou-Ra-zmy" id="qUz-1V-Are"/>
+                                            <outlet property="price" destination="svX-ga-IWo" id="B11-fz-J6O"/>
+                                            <outlet property="size" destination="bpL-J6-TcA" id="5rf-WL-opH"/>
+                                            <outletCollection property="colorVariantCollection" destination="owk-jF-hgn" collectionClass="NSMutableArray" id="CyF-cw-msP"/>
+                                            <outletCollection property="colorVariantCollection" destination="tkK-cH-huM" collectionClass="NSMutableArray" id="bV2-8k-da4"/>
+                                            <outletCollection property="colorVariantCollection" destination="cPL-zk-HvN" collectionClass="NSMutableArray" id="AJ5-DC-u48"/>
+                                            <outletCollection property="colorVariantCollection" destination="f10-WL-ecM" collectionClass="NSMutableArray" id="jjX-9D-wIk"/>
+                                            <outletCollection property="colorVariantCollection" destination="9F1-nI-syK" collectionClass="NSMutableArray" id="ZqD-1D-Uf3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -642,14 +532,13 @@
                     </view>
                     <connections>
                         <outlet property="cartCount" destination="Cfp-ap-xMu" id="7dE-P6-OUQ"/>
-                        <outlet property="giftRegisterButton" destination="fMb-Tx-98M" id="iHG-qv-2fU"/>
                         <outlet property="navTitle" destination="7eV-q9-N9y" id="8Kq-Pb-jWa"/>
                         <outlet property="tableView" destination="LC8-bV-hNH" id="VQv-0G-osj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odC-x5-wCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3903" y="113"/>
+            <point key="canvasLocation" x="3902.898550724638" y="112.5"/>
         </scene>
     </scenes>
     <resources>

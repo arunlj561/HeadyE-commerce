@@ -10,15 +10,9 @@ import UIKit
 
 
 class DetailTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var wishList: UIButton!
-    @IBOutlet weak var productImage: UIImageView!
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+        
     var product:Products!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,7 +21,7 @@ class DetailTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+
     }
 
     
@@ -35,53 +29,55 @@ class DetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var reviews: UILabel!
     
+    @IBOutlet weak var size: UILabel!
     @IBOutlet var colorVariantCollection: [UIButton]!
     
-    var selectedVariant:Variants?
-        
-    
-        
-    
-    
-    @IBOutlet weak var content: UILabel!
+    var selectedVariant:Variants?{
+        didSet{
+            if let variant = self.selectedVariant{
+                price.text = "₹ \(variant.price ?? 0)"
+                size.text = "Size - \(variant.size ?? 0)"
+            }
+        }
+    }
     
     func updateName(){
         self.name.text = product.name
-        if let variant = self.selectedVariant{
-            price.text = "₹ \(variant.price ?? 0)"
-            rating.text = "\(variant.size ?? 0)"
-        }else{
-            self.selectedVariant = product.variants?.first
-        }
-        
-        
+        self.selectedVariant = product.variants?.first
+        self.updateColorVariant(color: Array(product.variants ?? Set<Variants>()))
     }
     
-    
-    func updateContent(with detailContent:String) {
-        if detailContent.count > 0{
-            content.text = detailContent
-        }else{
-            content.text = "No details for this product"
-        }
-    }
-    
-    func updateColorVariant(color variant:[Variants]){                
+    func updateColorVariant(color variant:[Variants]){
         for (index, i) in variant.enumerated(){
             colorVariantCollection[index].isHidden = false
-            if selectedVariant == i{
-                
+            colorVariantCollection[index].backgroundColor = i.getColor()
+            if i == selectedVariant{
+                self.updateButton(index)
             }
         }
         
     }
     
+    func updateButton(_ i : Int){
+        for (index, btn) in colorVariantCollection.enumerated(){
+            if i == index{
+                btn.layer.borderColor = UIColor.lightGray.cgColor
+                btn.layer.borderWidth = 4
+            }else{
+                btn.layer.borderColor = UIColor.lightGray.cgColor
+                btn.layer.borderWidth = 0
+            }
+        }
+        
+    }
+    
+    
     @IBAction func actionChangeVariant(_ sender: UIButton) {
         if let variants = product.variants{
-//            selectedVariant = variants[variants.index(variants.startIndex, offsetBy: sender.tag)]
+            selectedVariant = variants[variants.index(variants.startIndex, offsetBy: sender.tag)]
+            self.updateButton(sender.tag)
+            
         }
         
     }

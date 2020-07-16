@@ -9,18 +9,15 @@
 import UIKit
 enum RowType{
     case name
-    case color
-    case detail
+    
     
     var reuseIdentifier:String!{
         switch self {        
         case .name : return "name"
-        case .color: return "color"
-        case .detail: return "detail"
         }
     }
 
-    static let all:[RowType] = [ .name, .color, .detail]
+    static let all:[RowType] = [ .name]
 }
 
 
@@ -42,11 +39,11 @@ class ProductDetailDatasource: NSObject,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: type.reuseIdentifier, for: indexPath) as! DetailTableViewCell
         cell.product = self.product
         switch type {
-        case .detail: break
+        
         case .name: cell.updateName()
-            break
-        case .color:
-            cell.updateColorVariant(color: Array(product.variants ?? Set<Variants>()))
+        
+        
+            
         
         }
     
